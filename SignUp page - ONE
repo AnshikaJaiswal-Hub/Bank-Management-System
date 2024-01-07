@@ -1,0 +1,275 @@
+package bank.management.system;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.*;
+import com.toedter.calendar.JDateChooser;
+import java.awt.event.*;
+
+public class SignUpOne extends JFrame implements ActionListener{
+    JTextField nameTextField ,fnameTextField ,emailTextField ,AddressTextField , CityTextField ,PincodeTextField ,StateTextField;
+    JRadioButton male , female, other ,Married,unMarried;
+    JDateChooser dateChoose;
+    JButton next;
+    long random;
+
+    SignUpOne() {
+        setLayout(null);
+        Random r = new Random();
+        random = Math.abs((r.nextLong() % 9000L) + 1000);
+
+        JLabel Application = new JLabel("APPLICATION FORM NO : " + random);
+        Application.setBounds(140, 20, 600, 40);
+        Application.setFont(new Font("Osward", Font.BOLD, 38));
+        add(Application);
+
+        JLabel personalDetails = new JLabel("Page 1 : Personal Details :");
+        personalDetails.setBounds(290, 80, 600, 30);
+        personalDetails.setFont(new Font("Osward", Font.BOLD, 22));
+        add(personalDetails);
+        
+        JLabel name = new JLabel("Name : ");
+        name.setBounds(100, 140, 200, 30);
+        name.setFont(new Font("Osward", Font.BOLD, 22));
+        add(name);
+        
+        nameTextField = new JTextField();
+        nameTextField.setFont(new Font("Raleway",Font.BOLD,22));
+        nameTextField.setBounds(300,140,400,30);
+        add(nameTextField);
+        
+        JLabel fname = new JLabel("Father's name :");
+        fname.setBounds(100, 190, 200, 30);
+        fname.setFont(new Font("Osward", Font.BOLD, 22));
+        add(fname);
+        
+        fnameTextField = new JTextField();
+        fnameTextField.setFont(new Font("Raleway",Font.BOLD,22));
+        fnameTextField.setBounds(300,190,400,30);
+        add(fnameTextField);
+        
+        
+        JLabel dob = new JLabel("Date Of Birth :");
+        dob.setBounds(100, 230, 200, 30);
+        dob.setFont(new Font("Osward", Font.BOLD, 22));
+        add(dob);
+        
+        dateChoose = new JDateChooser();
+        dateChoose.setBounds(300,230,400,30);
+        dateChoose.setFont(new Font("Raleway",Font.BOLD,22));
+        add(dateChoose);
+                
+        
+        JLabel Gender = new JLabel("Gender :");
+        Gender.setBounds(100, 280, 200, 30);
+        Gender.setFont(new Font("Osward", Font.BOLD, 22));
+        add(Gender);
+        
+        male = new JRadioButton("Male");
+        male.setBounds(300,280,60,30);
+        male.setBackground(Color.WHITE);
+        add(male);
+        
+        female = new JRadioButton("Female");
+        female.setBounds(400,280,100,30);
+        female.setBackground(Color.WHITE);
+        add(female);
+        
+        other = new JRadioButton("Others");
+        other.setBounds(500,280,100,30);
+        other.setBackground(Color.WHITE);
+        add(other);
+        
+        ButtonGroup gender = new ButtonGroup();
+        gender.add(male);
+        gender.add(female);
+        gender.add(other);
+        
+        
+        JLabel email = new JLabel("Email Address :");
+        email.setBounds(100, 330, 200, 30);
+        email.setFont(new Font("Osward", Font.BOLD, 22));
+        add(email);
+        
+        emailTextField = new JTextField();
+        emailTextField.setFont(new Font("Raleway",Font.BOLD,22));
+        emailTextField.setBounds(300,330,400,30);
+        add(emailTextField);
+        
+        JLabel Martial = new JLabel("Marital Status :");
+        Martial.setBounds(100, 380, 200, 30);
+        Martial.setFont(new Font("Osward", Font.BOLD, 22));
+        add(Martial);
+        
+        Married = new JRadioButton("Married");
+        Married.setBounds(300,380,100,30);
+        Married.setBackground(Color.WHITE);
+        add(Married);
+        
+        unMarried = new JRadioButton("Unmarried");
+        unMarried.setBounds(450,380,100,30);
+        unMarried.setBackground(Color.WHITE);
+        add(unMarried);
+        
+        ButtonGroup marry = new ButtonGroup();
+        marry.add(Married);
+        marry.add(unMarried);
+        
+        
+        JLabel Address = new JLabel("Address :");
+        Address.setBounds(100, 430, 200, 30);
+        Address.setFont(new Font("Osward", Font.BOLD, 22));
+        add(Address);
+        
+        AddressTextField = new JTextField();
+        AddressTextField.setFont(new Font("Raleway",Font.BOLD,22));
+        AddressTextField.setBounds(300,430,400,30);
+        add(AddressTextField);
+        
+        JLabel city = new JLabel("City :");
+        city.setBounds(100, 480, 200, 30);
+        city.setFont(new Font("Osward", Font.BOLD, 22));
+        add(city);
+        
+        CityTextField = new JTextField();
+        CityTextField.setFont(new Font("Raleway",Font.BOLD,22));
+        CityTextField.setBounds(300,480,400,30);
+        add(CityTextField);
+        
+        JLabel state = new JLabel("State :");
+        state.setBounds(100, 530, 200, 30);
+        state.setFont(new Font("Osward", Font.BOLD, 22));
+        add(state);
+        
+        StateTextField = new JTextField();
+        StateTextField.setFont(new Font("Raleway",Font.BOLD,22));
+        StateTextField.setBounds(300,530,400,30);
+        add(StateTextField);
+        
+        JLabel pincode = new JLabel("Pincode :");
+        pincode.setBounds(100, 580, 200, 30);
+        pincode.setFont(new Font("Osward", Font.BOLD, 22));
+        add(pincode);
+        
+        PincodeTextField = new JTextField();
+        PincodeTextField.setFont(new Font("Raleway",Font.BOLD,22));
+        PincodeTextField.setBounds(300,580,400,30);
+        add(PincodeTextField);
+        
+        next = new JButton("Next");
+        next.setBounds(600,700,100,30);
+        next.setBackground(Color.BLACK);
+        next.setForeground(Color.WHITE);
+        next.addActionListener(this);
+        add(next);
+        
+
+        setSize(850, 800);
+        setLocation(350, 10);
+        setVisible(true);
+        getContentPane().setBackground(Color.WHITE);
+
+    }
+    @Override
+    public void actionPerformed(ActionEvent ae){
+        String formno = ""+random;
+        String name=nameTextField.getText();
+        String fname=fnameTextField.getText();
+        String dob = ((JTextField)dateChoose.getDateEditor().getUiComponent()).getText();
+        String gender="null";
+        if(male.isSelected()){
+            gender="Male";
+        }else if(female.isSelected()){
+            gender = "Female";
+        }
+        else if(other.isSelected()){
+        gender = "Others";
+        }
+        
+        String email = emailTextField.getText();
+        String marital="null";
+        if(Married.isSelected()){
+            marital="Married";
+        }else if(unMarried.isSelected()){
+            marital = "Unmarried";
+        }
+        String address = AddressTextField.getText();
+        String City =CityTextField.getText();
+        String state =StateTextField.getText();
+        String pincode =PincodeTextField.getText();
+        
+         if(ae.getSource() == next){
+           
+            try{
+            if(name.equals("")){
+                JOptionPane.showMessageDialog(null,"Name is requierd");
+            }
+            else if(fname.equals("")){
+                JOptionPane.showMessageDialog(null,"Father's Name is requierd");
+
+            }
+            else if(dob.equals("")){
+                JOptionPane.showMessageDialog(null,"Date Of Birth is requierd");
+
+            }
+            else if(gender.equals("")){
+                JOptionPane.showMessageDialog(null,"Gender is requierd");
+
+            }
+            else if(email.equals("")){
+                JOptionPane.showMessageDialog(null,"Email is requierd");
+
+            }
+            else if(marital.equals("")){
+                JOptionPane.showMessageDialog(null,"Marital Status is requierd");
+
+            }
+            else if(address.equals("")){
+                JOptionPane.showMessageDialog(null,"Address is requierd");
+
+            }
+            else if(City.equals("")){
+                JOptionPane.showMessageDialog(null,"City is requierd");
+
+            }
+            else if(state.equals("")){
+                JOptionPane.showMessageDialog(null,"State is requierd");
+
+            }else if(pincode.equals("")){
+                JOptionPane.showMessageDialog(null,"Pincode is requierd");
+
+            } else if(gender.equals("null")){
+                JOptionPane.showMessageDialog(null,"Gender is required");
+
+            }
+            else if(marital.equals("null")){
+                JOptionPane.showMessageDialog(null,"Marital Status is required ");
+
+            }
+            
+            else{
+                Conn conn=new Conn();
+                String query = "insert into signupone values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+City+"','"+state+"','"+pincode+"')";
+                conn.s.executeUpdate(query);
+                setVisible(false);
+                new SignUpTwo(formno).setVisible(true);
+            }
+        }
+        
+        catch(Exception e){
+            System.out.println(e);
+        } 
+         
+         
+         }
+        
+        
+        
+        
+    }
+
+    public static void main(String args[]) {
+        new SignUpOne();
+
+    }
+}
