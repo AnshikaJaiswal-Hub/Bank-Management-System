@@ -1,0 +1,263 @@
+package bank.management.system;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+
+/**
+ *
+ * @author Anshika Jaiswal
+ */
+public class SignUpTwo extends JFrame implements ActionListener {
+     JComboBox religionCB ,categoryCB ,OccuCB ,eduCB , CityTextField ,StateTextField,incomeCB;
+     JTextField AadharTextField ,panTextField ;
+     JRadioButton Ea,NEa,Scz,NScz;
+   
+    JButton next;
+    long random;
+    String formno;
+   
+    SignUpTwo(String formno) {
+        this.formno = formno;
+        setLayout(null);
+        
+
+        
+
+        JLabel additionalDetails = new JLabel("Page 2 : Additional Details :");
+        additionalDetails.setBounds(220, 50, 600, 30);
+        additionalDetails.setFont(new Font("Osward", Font.BOLD, 32));
+        add(additionalDetails);
+        
+        JLabel religion = new JLabel("Religion : ");
+        religion.setBounds(100, 140, 200, 30);
+        religion.setFont(new Font("Osward", Font.BOLD, 22));
+        add(religion);
+        
+        String [] religionVal={"Hindu","Muslim","Sikh","Jainism","Chritian","Others"};
+        religionCB = new JComboBox(religionVal);
+        religionCB.setFont(new Font("Raleway",Font.BOLD,22));
+        religionCB.setBounds(300,140,400,30);
+        add(religionCB);
+        
+        JLabel category = new JLabel("Category :");
+        category.setBounds(100, 190, 200, 30);
+        category.setFont(new Font("Osward", Font.BOLD, 22));
+        add(category);
+        
+        String [] categoryVal={"General","SC","ST","OBC","Others"};
+        categoryCB = new JComboBox(categoryVal);
+        categoryCB.setFont(new Font("Raleway",Font.BOLD,22));
+        categoryCB.setBounds(300,190,400,30);
+        add(categoryCB);
+        
+        
+        JLabel income = new JLabel("Income :");
+        income.setBounds(100, 230, 200, 30);
+        income.setFont(new Font("Osward", Font.BOLD, 22));
+        add(income);
+
+        String [] incomeVal={"Null","<1,50,000","<2,50,000","<5,00,000","Upto 10,00,000"};
+        incomeCB = new JComboBox(incomeVal);
+        incomeCB.setFont(new Font("Raleway",Font.BOLD,22));
+        incomeCB.setBounds(300,230,400,30);
+        add(incomeCB);
+        
+        
+        
+        JLabel edu = new JLabel("Educational");
+        edu.setBounds(100, 280, 200, 30);
+        edu.setFont(new Font("Osward", Font.BOLD, 22));
+        add(edu);
+         
+        JLabel edu2 = new JLabel(":");
+        edu2.setBounds(250, 295, 200, 30);
+        edu2.setFont(new Font("Osward", Font.BOLD, 22));
+        add(edu2);
+         
+        JLabel edu1 = new JLabel("Qualification ");
+        edu1.setBounds(100, 315, 200, 30);
+        edu1.setFont(new Font("Osward", Font.BOLD, 22));
+        add(edu1);
+
+        String [] eduVal={"Matric -Pass","High school Graduate","Under-Graduate","Graduate","Post-Graduation","Doctrate","Others"};
+        eduCB = new JComboBox(eduVal);
+        eduCB.setFont(new Font("Raleway",Font.BOLD,22));
+        eduCB.setBounds(300,295,400,30);
+        add(eduCB);
+        
+        
+        
+        JLabel Occu = new JLabel("Occupation :");
+        Occu.setBounds(100, 355, 200, 30);
+        Occu.setFont(new Font("Osward", Font.BOLD, 22));
+        add(Occu);
+
+        String [] OccuVal={"Salaried","Self-Employ","Bussiness","Student","Retired","Others"};
+        OccuCB = new JComboBox(OccuVal);
+        OccuCB.setFont(new Font("Raleway",Font.BOLD,22));
+        OccuCB.setBounds(300,355,400,30);
+        add(OccuCB);
+        
+        JLabel Martial = new JLabel("PAN Number :");
+        Martial.setBounds(100, 405, 200, 30);
+        Martial.setFont(new Font("Osward", Font.BOLD, 22));
+        add(Martial);
+        panTextField = new JTextField();
+        panTextField.setFont(new Font("Raleway",Font.BOLD,22));
+        panTextField.setBounds(300,405,400,30);
+        add(panTextField);
+       
+        
+        
+        JLabel Address = new JLabel("Aadhar Number :");
+        Address.setBounds(100, 455, 200, 30);
+        Address.setFont(new Font("Osward", Font.BOLD, 22));
+        add(Address);
+        
+        AadharTextField = new JTextField();
+        AadharTextField.setFont(new Font("Raleway",Font.BOLD,22));
+        AadharTextField.setBounds(300,455,400,30);
+        add(AadharTextField);
+        
+        JLabel senior = new JLabel("Senior Citizen :");
+        senior.setBounds(100, 505, 200, 30);
+        senior.setFont(new Font("Osward", Font.BOLD, 22));
+        add(senior);
+        
+        Scz = new JRadioButton("Yes");
+        Scz.setBounds(300,505,100,30);
+        Scz.setBackground(Color.WHITE);
+        add(Scz);
+        
+        NScz = new JRadioButton("No");
+        NScz.setBounds(450,505,100,30);
+        NScz.setBackground(Color.WHITE);
+        add(NScz);
+        
+        ButtonGroup yn1 = new ButtonGroup();
+        yn1.add(Scz);
+        yn1.add(NScz);
+        
+        
+        JLabel exist = new JLabel("Existing Account :");
+        exist.setBounds(100, 555, 200, 30);
+        exist.setFont(new Font("Osward", Font.BOLD, 22));
+        add(exist);
+        Ea = new JRadioButton("Yes");
+        Ea.setBounds(300,555,100,30);
+        Ea.setBackground(Color.WHITE);
+        add(Ea);
+        
+        NEa = new JRadioButton("No");
+        NEa.setBounds(450,555,100,30);
+        NEa.setBackground(Color.WHITE);
+        add(NEa);
+        
+        ButtonGroup yn = new ButtonGroup();
+        yn.add(Ea);
+        yn.add(NEa);
+       
+        
+       
+        
+        next = new JButton("Next");
+        next.setBounds(600,700,100,30);
+        next.setBackground(Color.BLACK);
+        next.setForeground(Color.WHITE);
+        next.addActionListener(this);
+        add(next);
+        
+      
+        
+        setSize(850, 800);
+        setLocation(350, 10);
+        setVisible(true);
+        setTitle("NEW ACCOUNT APPLICATION FORM - PAGE : 2");
+        getContentPane().setBackground(Color.WHITE);
+
+    }
+    public void actionPerformed(ActionEvent ae){
+        String sformno=formno;
+        String sReligion = (String)religionCB.getSelectedItem();
+        String sCategory = (String)categoryCB.getSelectedItem();
+        String sIncome = (String)incomeCB.getSelectedItem();
+        String sEdu =(String)eduCB.getSelectedItem();
+        String sOccu =(String)OccuCB.getSelectedItem();
+        String sPan =panTextField.getText();
+        String sAadhar = AadharTextField.getText();
+        String sSenior = "Null";
+        if(Scz.isSelected()){
+            sSenior="Yes";
+        }
+        else if(NScz.isSelected()){
+            sSenior="No";
+        }
+        String sExist = "Null";
+        if(Ea.isSelected()){
+            sExist="Yes";
+        }
+        else if(NEa.isSelected()){
+            sExist="No";
+        }
+        
+        if(ae.getSource()== next){
+            try{
+                if(sReligion.equals("")){
+                    JOptionPane.showMessageDialog(null, "Religionn is required");
+                }
+                 else if(sCategory.equals("")){
+                JOptionPane.showMessageDialog(null,"Category is required");
+
+            }
+            else if(sIncome.equals("")){
+                JOptionPane.showMessageDialog(null,"Income is required");
+
+            }
+            else if(sEdu.equals("")){
+                JOptionPane.showMessageDialog(null,"Educational Qualification is required");
+
+            }
+            else if(sOccu.equals("")){
+                JOptionPane.showMessageDialog(null,"Occupation is required");
+
+            }
+            else if(sPan.equals("")){
+                JOptionPane.showMessageDialog(null,"Pan Number is required");
+
+            }
+            else if(sAadhar.equals("")){
+                JOptionPane.showMessageDialog(null,"Aadhar Number is required");
+
+            }
+            else if(sSenior.equals("Null")){
+                JOptionPane.showMessageDialog(null,"Senior Citizenship is required");
+
+            }
+            else if(sExist.equals("Null")){
+                JOptionPane.showMessageDialog(null,"Account already exist or not required ");
+
+            }
+            else{
+                Conn c = new Conn();
+                String query ="insert into signuptwo values('"+sformno+"','"+sReligion+"','"+sCategory+"','"+sIncome+"','"+sEdu+"','"+sOccu+"','"+sPan+"','"+sAadhar+"','"+sSenior+"','"+sExist+"')";
+                c.s.executeUpdate(query);
+                setVisible(false);
+                new SignUpThree(sformno).setVisible(true);
+            }
+                
+            }
+            catch(Exception e){
+                System.out.println(e);
+                
+            }
+        }
+        
+        
+                
+       }
+    public static void main(String args[]) {
+        new SignUpTwo("");
+    }
+}
